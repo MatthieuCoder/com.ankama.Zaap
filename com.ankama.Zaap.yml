@@ -4,7 +4,7 @@ runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
 base-version: '23.08'
-command: zaap
+command: com.ankama.Zaap
 separate-locales: false
 rename-icon: com.ankama.Zaap
 finish-args:
@@ -13,7 +13,15 @@ finish-args:
   - --device=dri
   - --socket=x11
   - --socket=wayland
+  - --share=ipc
   - --socket=pulseaudio
+  - --talk-name=org.freedesktop.ScreenSaver
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=com.canonical.AppMenu.Registrar
+  - --talk-name=com.canonical.indicator.application
+  - --talk-name=com.canonical.Unity
+tags:
+  - proprietary
 modules:
   - name: unappimage
     buildsystem: simple
@@ -24,7 +32,7 @@ modules:
         url: https://github.com/refi64/unappimage
         commit: d7f86f2a0d7ec3a69211125207d5f127386b849a
 
-  - name: appname
+  - name: com.ankama.Zaap
     buildsystem: simple
     cleanup:
       - squashfs-root
@@ -36,7 +44,7 @@ modules:
         filename: Zaap.AppImage
 
       - type: script
-        dest-filename: zaap
+        dest-filename: com.ankama.Zaap
         commands:
           - exec zypak-wrapper /app/extra/bin/zaap --no-sandbox "$0"
 
@@ -54,7 +62,7 @@ modules:
 
     build-commands:
       - install -D ./apply_extra.sh "${FLATPAK_DEST}/bin/apply_extra"
-      - install zaap "${FLATPAK_DEST}/bin/"
+      - install com.ankama.Zaap "${FLATPAK_DEST}/bin/"
       - install -Dm644 com.ankama.Zaap.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - install -Dm644 com.ankama.Zaap.metainfo.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
       - install  -Dm644 -t ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps com.ankama.Zaap.png

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Ankama Launcher
 Comment=Launcher for games such as Dofus and Wakfu
-Exec=zaap
+Exec=com.ankama.Zaap
 Terminal=false
 Type=Application
 Icon=com.ankama.Zaap
