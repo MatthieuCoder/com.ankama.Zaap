@@ -16,6 +16,8 @@
 
 	<description>
 		<p>Launcher for games such as Dofus and Wakfu
+
+		This is a community Flatpak packaging not endorsed by Ankama.
 		</p>
 	</description>
 
@@ -37,7 +39,6 @@
 		<release version="3.12.28" date="2024-12-18">
 			<description></description>
 		</release>
-		<release version="1.0.0" date="2023-01-03"/>
 	</releases>
 
 </component>
