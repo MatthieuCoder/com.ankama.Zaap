@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_IMAGE="/app/extra/Dofus_3.0-x86_64.AppImage"
+APP_IMAGE="/app/extra/Zaap.AppImage"
 
 # Allow image to execute
 

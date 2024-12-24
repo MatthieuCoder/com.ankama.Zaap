@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+
+	<id>com.ankama.Zaap</id>
+	<provides>
+		<id>com.ankama.Zaap</id>
+	</provides>
+	<launchable type="desktop-id">com.ankama.Zaap.desktop</launchable>
+	<name>Ankama Zaap Launcher</name>
+	<developer_name>Ankama</developer_name>
+	<summary>Launcher to launch Ankama Games</summary>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>LicenseRef-proprietary</project_license>
+
+	<url type="homepage">https://ankama.com</url>
+
+	<description>
+		<p>Launcher for games such as Dofus and Wakfu
+		</p>
+	</description>
+
+	<categories>
+		<category>Game</category>
+	</categories>
+
+
+	<kudos>
+		<kudo>Matthieu Pignolet</kudo>
+	</kudos>
+
+	<screenshots>
+	</screenshots>
+
+	<content_rating type="oars-1.1">
+	</content_rating>
+	<releases>
+		<release version="3.12.28" date="2024-12-18">
+			<description></description>
+		</release>
+		<release version="1.0.0" date="2023-01-03"/>
+	</releases>
+
+</component>

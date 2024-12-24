@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Ankama Launcher
+Comment=Ankama portal and game launcher
+Exec=zaap
+Terminal=false
+Type=Application
+Icon=com.ankama.Zaap
+StartupWMClass=Ankama Launcher
+Categories=Game;
+MimeType=x-scheme-handler/zaap;

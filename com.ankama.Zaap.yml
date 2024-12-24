@@ -1,0 +1,61 @@
+app-id: com.ankama.Zaap
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: '23.08'
+command: zaap
+separate-locales: false
+rename-icon: com.ankama.Zaap
+finish-args:
+  - --persist=.config/Ankama
+  - --share=network
+  - --device=dri
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --talk-name=org.kde.StatusNotifierWatcher
+modules:
+  - name: unappimage
+    buildsystem: simple
+    build-commands:
+      - make -C squashfs-tools install INSTALL_DIR=/app/bin
+    sources:
+      - type: git
+        url: https://github.com/refi64/unappimage
+        commit: d7f86f2a0d7ec3a69211125207d5f127386b849a
+
+  - name: appname
+    buildsystem: simple
+    cleanup:
+      - squashfs-root
+    sources:
+      - type: extra-data
+        url: https://launcher.cdn.ankama.com/installers/production/Ankama%20Launcher-Setup-x86_64.AppImage
+        size: 146161610
+        sha256: e8726a9800e3ad0aabd959bf9979d137f04c3efeaa70fee453bc724f32c94110
+        filename: Zaap.AppImage
+
+      - type: script
+        dest-filename: zaap
+        commands:
+          - exec zypak-wrapper /app/extra/bin/zaap --no-sandbox "$0"
+
+      - type: file
+        path: com.ankama.Zaap.metainfo.xml
+
+      - type: file
+        path: com.ankama.Zaap.desktop
+
+      - type: file
+        path: apply_extra.sh
+
+      - type: file
+        path: icons/com.ankama.Zaap.png
+
+    build-commands:
+      - install -D ./apply_extra.sh "${FLATPAK_DEST}/bin/apply_extra"
+      - install zaap "${FLATPAK_DEST}/bin/"
+      - install -Dm644 com.ankama.Zaap.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+      - install -Dm644 com.ankama.Zaap.metainfo.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
+      - install  -Dm644 -t ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps com.ankama.Zaap.png
