@@ -43,6 +43,9 @@ modules:
         size: 146161610
         sha256: e8726a9800e3ad0aabd959bf9979d137f04c3efeaa70fee453bc724f32c94110
         filename: Zaap.AppImage
+        x-checker-data:
+          type: rotating-url
+          url: https://launcher.cdn.ankama.com/installers/production/Ankama%20Launcher-Setup-x86_64.AppImage
 
       - type: script
         dest-filename: com.ankama.Zaap
