@@ -40,8 +40,8 @@ modules:
     sources:
       - type: extra-data
         url: https://launcher.cdn.ankama.com/installers/production/Ankama%20Launcher-Setup-x86_64.AppImage
-        size: 173662623
-        sha256: 77d1445d5b8def08a296c90a84f6e9fecb27d7a97c1756bf0ba541355bf7c76d
+        size: 187922769
+        sha256: 737946e12bdde60c6c694549ddf8813b664bf94e29271257e4583921367f4302
         filename: Zaap.AppImage
         x-checker-data:
           type: rotating-url
